@@ -25,13 +25,8 @@ namespace ExpenseManager
                 var path = pathbox.Text;
                 var result = File.ReadAllText(path);
 
-                result = result.Replace("|", "\t");
-
-                var lines = result.Split('\n').Skip(1);
-
-                var formattedResult = string.Join(Environment.NewLine, lines);
-                outputbox.Text = $"Date \t\tPrice \tCategory {Environment.NewLine}";
-                outputbox.Text += formattedResult;
+                result = result.Replace("|", "\t\t");
+                outputbox.Text = result;
             }
             catch
             {
